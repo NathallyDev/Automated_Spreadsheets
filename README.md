@@ -9,28 +9,28 @@
 % 
 %
 
-% Ler a planilha Excel
+% Read a Excel spreadsheet 
 [num, dados_excel] = xlsread('name_spreadsheet.xls');
 
-% Obter o tamanho da matriz
+% Get array size
 [num_linhas, num_colunas] = size(dados_excel);
 
-% Inicializar uma célula para armazenar os dados concatenados
+% Initialize a cell to store concatenated data
 dados_concatenados = cell(num_linhas, 1);
 
-% Usar loop for para percorrer as linhas e concatenar os valores
+% Use for loop to go through the lines and concatenate the values
 for i = 1:num_linhas
     linha_atual = dados_excel(i, :); % Obtém a linha atual
     
-    % Converter os valores da linha para strings
+    % Convert row values to strings
     valores_str = cellfun(@num2str, num2cell(linha_atual), 'UniformOutput', false);
     
-    % Concatenar os valores com a quebra de linha '\n' entre eles
+    % Concatenate the values with the line break '\n' between them
     linha_concatenada = strjoin(valores_str, '\n');
     
-    % Armazenar na célula
+    % Store in cell
     dados_concatenados{i} = linha_concatenada;
 end
 
-% Escrever os dados concatenados para uma nova planilha Excel
+% Write the concatenated data to a new Excel spreadsheet
 xlswrite('Name_new_spreadsheet.xls', dados_concatenados);
