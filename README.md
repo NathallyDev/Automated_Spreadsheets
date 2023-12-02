@@ -10,7 +10,7 @@
 %
 
 % Ler a planilha Excel
-[num, dados_excel] = xlsread('Geral.xls');
+[num, dados_excel] = xlsread('name_spreadsheet.xls');
 
 % Obter o tamanho da matriz
 [num_linhas, num_colunas] = size(dados_excel);
@@ -33,4 +33,4 @@ for i = 1:num_linhas
 end
 
 % Escrever os dados concatenados para uma nova planilha Excel
-xlswrite('Nova_Geral.xls', dados_concatenados);
+xlswrite('Name_new_spreadsheet.xls', dados_concatenados);
