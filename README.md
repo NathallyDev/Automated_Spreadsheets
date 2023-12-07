@@ -2,35 +2,37 @@
 % The code takes data from an Excel spreadsheet and concatenates it into cells in a new spreadsheet, ready to automatically print labels.
 % Code: matlab
 %
-% Date: 02/12/2023
-% Creator: Náthally Lima Arruda 
+% Data: 07/12/2023
+% Dev: Náthally Lima Arruda 
 % E-mail: nathallylym@gmail.com
 %
 % 
 %
+clear all
+clc
 
-% Read an Excel spreadsheet 
-[num, data_excel] = xlsread('name_spreadsheet.xls');
+% Ler a planilha Excel
+[num, dados_excel] = xlsread('nome_planilha.xls');
 
-% Get array size
-[num_lines, num_columns] = size(data_excel);
+% Obter o tamanho da matriz
+[num_linhas, num_colunas] = size(dados_excel);
 
-% Initialize a cell to store concatenated data
-data_concatenated = cell(num_lines, 1);
+% Inicializar uma célula para armazenar os dados concatenados
+dados_concatenados = cell(num_linhas, 1);
 
-% Use for loop to go through the lines and concatenate the values
-for i = 1:num_lines
-    line_current = data_excel(i, :); % Get the current line
+% Usar loop for para percorrer as linhas e concatenar os valores
+for i = 1:num_linhas
+    linha_atual = dados_excel(i, :); % Obtém a linha atual
     
-    % Convert row values to strings
-    values_str = cellfun(@num2str, num2cell(line_current), 'UniformOutput', false);
+    % Converter os valores da linha para strings
+    valores_str = cellstr(linha_atual);
     
-    % Concatenate the values with the line break '\n' between them
-    line_concatenated = strjoin(values_str, '\n');
+    % Concatenar os valores com a quebra de linha '\n' entre eles
+    linha_concatenada = strjoin(valores_str, '\n');
     
-    % Store in cell
-    data_concatenated{i} = line_concatenated;
+    % Armazenar na célula
+    dados_concatenados{i} = linha_concatenada;
 end
 
-% Write the concatenated data to a new Excel spreadsheet
-writematrix(data_concatenated, 'Name_new_spreadsheet.xlsx');
+% Escrever os dados concatenados para uma nova planilha Excel
+xlswrite('novo_nome_planilha.xls', dados_concatenados);
