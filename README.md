@@ -1,12 +1,12 @@
-# Leitura de Planilha - Concatenação de Planilha 
+# Spreadsheet Reading - Spreadsheet Concatenation
 
-Este projeto consiste em um metodo de concatenação de uma planilha, para celulas individuais através do Excel, ideais para fazer etiquetas.
+This project consists of a method of concatenating a spreadsheet to individual cells using Excel, ideal for making labels.
 
-## Progresso
+## Progress
 
-- Início: 07/12/23
-- Status: Completo
+- Start: 12/07/23
+- Status: Complete
 
-## Requisitos
+## Requirements
 
 - Matlab R2018b
