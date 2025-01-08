@@ -1,13 +1,3 @@
-% Excel-Labels
-% The code takes data from an Excel spreadsheet and concatenates it into cells in a new spreadsheet, ready to automatically print labels.
-% Code: matlab
-%
-% Date: 12/07/2023
-% Dev: Nathally Lima Arruda
-% Email: nathallylym@gmail.com
-%
-%
-%
 clear all
 clc
 
